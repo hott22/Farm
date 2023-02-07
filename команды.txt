@@ -1,0 +1,59 @@
+1)
+cat > pets << EOF
+> cat, рыжик, 3, red
+> dog, тузик, 4, black
+> hamster, догги, 5, brown
+> dog, шарик, 2, white
+> cat, пушок, 4, black
+> hamster, крошка, 1, brown
+> EOF
+
+
+2)
+cat > beasts << EOF
+> horse, Lady, 5, brown
+> camel, Sharuf, 7, beige
+> donkey, Lucky, 3, grey
+> EOF
+
+3)
+mkdir farm
+
+4)
+mv pets farm
+5)
+mv beasts farm
+
+6)
+sudo apt install git
+
+7)
+cat pets beasts > friends
+
+8)
+mv friends Друзья_человека
+
+9)
+mkdir friends
+
+10)
+mv Друзья_человека friends
+
+11)
+apt-get install mysql-server
+
+12)
+sudo snap install mysql-workbench-community
+
+13)
+mysql-workbench-community
+
+14)
+snap connect mysql-workbench-community:password-manager-service 
+snap connect mysql-workbench-community:ssh-keys
+
+15)
+dpkg -i flashpluginnonfree_2.8.2+squeeze1_i386.deb
+
+16)
+dpkg -r flashpluginnonfree_2.8.2+squeeze1_i386.deb
