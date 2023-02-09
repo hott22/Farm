@@ -1,15 +1,21 @@
 package instances;
 
+import java.util.Date;
+
 public class Dog extends Pet{
 
 
-    @Override
-    public void voice() {
-
+    public Dog(String name, Date birthdate, String color) {
+        super(name, birthdate, color);
     }
 
     @Override
-    public void stand() {
-
+    public String toString() {
+        return "Dog{" +
+                "name='" + name + '\'' +
+                ", birthdate=" + birthdate +
+                ", color='" + color + '\'' +
+                ", commands=" + commands +
+                "}\n";
     }
 }
