@@ -1,33 +1,49 @@
-import instances.Cat;
-import instances.Pet;
-import instances.PetFactory;
+import Dialogs.Dialog;
+import View.View;
+import instances.Controller;
+import instances.Counter;
 import instances.Repository;
+import interfaces.IRepository;
 
+import java.awt.*;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Main {
 
-    public static void main(String[] args) throws ParseException {
-        //PetFactory petFactory = new PetFactory();
-        //Cat cat = (Cat) petFactory.createPet(1,"Catty", new SimpleDateFormat("yyyy-MM-dd").parse("2022-12-12"), "red");
-        //System.out.println(cat);
+    public static void main(String[] args) throws Exception {
 
-        Repository repository = new Repository();
-        repository.addPet(1,"Catty", new SimpleDateFormat("yyyy-MM-dd").parse("2022-12-12"), "red");
-        //repository.addPet(2,"Doggy", new SimpleDateFormat("yyyy-MM-dd").parse("2020-11-11"), "black");
+        View view = new View(new Controller(new Repository(), new Dialog()));
+        try (Counter counter = new Counter();){
+            while (true){
+                view.showMenu();
+                int choice = view.chooseAction("Your choice: ", 5);
 
-        //repository.getAll();
-        repository.viewCommands(0);
+                if(choice == 1){
+                    view.viewAllPets();
+                }
 
-     /*   for (Pet pet : repository.getAll()) {
-            pet.training(pet);
-        }*/
+                if(choice == 2){
+                    counter.riseSum();
+                    view.showPets();
+                    int petChoice = view.chooseAction("Your choice: ", 3);
+                    view.showDialog(petChoice);
+                }
+                if(choice == 3){
+                    view.viewAllPets();
+                    int id = view.chooseAction("Your choice: ", view.allPetsCount());
+                    view.viewCommandsPets(id - 1);
+                }
+                if(choice == 4){
+                    view.viewAllPets();
+                    int id = view.chooseAction("Your choice: ", view.allPetsCount());
+                    view.trainPets(id - 1);
 
-        repository.train(0);
-        repository.viewCommands(0);
-        //System.out.println(repository);
+                }
+                if (choice == 5){
+                    break;
+                }
+            }
+        }
 
 
     }

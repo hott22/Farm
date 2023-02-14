@@ -15,7 +15,6 @@ public class Dog extends Pet{
                 "name='" + name + '\'' +
                 ", birthdate=" + birthdate +
                 ", color='" + color + '\'' +
-                ", commands=" + commands +
                 "}\n";
     }
 }
