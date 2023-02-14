@@ -1,11 +1,13 @@
 package instances;
 
+import interfaces.IRepository;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-public class Repository implements interfaces.Repository {
+public class Repository implements IRepository {
     List<Pet> pets;
     PetFactory petFactory;
 
@@ -43,12 +45,12 @@ public class Repository implements interfaces.Repository {
     }
 
     public void viewCommands(int i){
+
         System.out.println(pets.get(i).getCommands());
     }
 
     public void train(int i){
         pets.get(i).train(pets.get(i));
-
     }
 
     @Override

@@ -5,7 +5,7 @@ import instances.Pet;
 import java.util.Collection;
 import java.util.Date;
 
-public interface Repository {
+public interface IRepository {
     void add(Pet pet);
     void delete(Pet pet);
     Pet getById(int id);

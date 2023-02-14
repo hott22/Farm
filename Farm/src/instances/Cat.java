@@ -14,7 +14,6 @@ public class Cat extends Pet{
                 "name='" + name + '\'' +
                 ", birthdate=" + birthdate +
                 ", color='" + color + '\'' +
-                ", commands=" + commands +
                 "}\n";
     }
 }
